@@ -1,7 +1,7 @@
 const express = require("express")
 
 const Projects = require("../data/helpers/projectModel.js")
-const pMid = require("../middleware/projectsMiddleware.js")
+const prjMW = require("../middleware/projectsMiddleware.js")
 const ActionsRouter = require("./ActionsRouter.js")
 
 const router = express.Router();
@@ -10,7 +10,7 @@ router.use("/:id/actions", ActionsRouter)
 
 router.post(
     "/",
-    pMid.validateProject,
+    prjMW.validateProject,
     (req, res) => {
         Projects.insert( req.body )
         .then( resp => {
@@ -41,7 +41,7 @@ router.get(
 
 router.get(
     "/:id", 
-    pMid.validateProjectById, 
+    prjMW.validateProjectById, 
     (req, res) => {
         const { id } = req.params;
         Projects.get(id)
@@ -58,8 +58,8 @@ router.get(
 
 router.put(
     "/:id", 
-    pMid.validateProjectById, 
-    pMid.validateProject, 
+    prjMW.validateProjectById, 
+    prjMW.validateProject, 
     (req, res) => {
         const { id } = req.params;
         Projects.update(id, req.body)
@@ -76,7 +76,7 @@ router.put(
 
 router.delete(
     "/:id", 
-    pMid.validateProjectById, 
+    prjMW.validateProjectById, 
     (req, res) => {
         const { id } = req.params
         Projects.remove(id)

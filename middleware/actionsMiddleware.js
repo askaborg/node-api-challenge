@@ -6,24 +6,30 @@ module.exports = {
 }
 
 function validateActionById(req, res, next) {
-    const { aId } = req.params;
+    const { actId } = req.params
 
-    Actions.get(aId)
+    Actions.get(actId)
     .then( resp => {
         if(resp !== null) {
-            next();
+            next()
         } else {
-            res.status(404).json({errorMessage: "The action with that id does not exist."})
+            res.status(404).json({
+                errorMessage: "Action does not exist."
+            })
         }
     })
     .catch( err => {
-        res.status(500).json({errorMessage: "There was an error getting the action."})
+        res.status(500).json({
+            errorMessage: "Error to get the action."
+        })
     })
 }
 
 function validateAction(req, res, next) {
     if(!req.body.description || !req.body.notes) {
-        res.status(400).json({errorMessage: "Please include a description and notes."})
+        res.status(400).json({
+            errorMessage: "Use description and notes."
+        })
     } else {
         next()
     }

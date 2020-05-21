@@ -8,7 +8,7 @@ module.exports = {
 function validateProject(req, res, next) {
     if(!req.body.name || !req.body.description) {
         res.status(400).json({
-            errorMessage: "Use a name and description."
+            errorMessage: "Use name and description."
         })
     } else {
         next()
@@ -24,7 +24,7 @@ function validateProjectById(req, res, next) {
             next();
         } else {
             res.status(404).json({
-                errorMessage: "Project id does not exist."
+                errorMessage: "Project does not exist."
             })
         }
     })
