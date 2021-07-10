@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+Middleware allows for log or validating incoming requests. Routing modularize our code for organization and reduce repetition.
+
 - [ ] Describe Middleware?
+
+Middlelware intercepts requests and run the same code to log or to validate.
 
 - [ ] Describe a Resource?
 
+what our backend serves up is the resource to our applications.
+
 - [ ] What can the API return to help clients know if a request was successful?
 
+We use HTTP status codes allow us to communicate results of the request.
+
 - [ ] How can we partition our application into sub-applications?
+
+We use Routing to partition our applications so that sub-routes are handled separately.
 
 ## Minimum Viable Product
 
